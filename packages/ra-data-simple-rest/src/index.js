@@ -97,6 +97,17 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
         return { url, options };
     };
 
+    const swapIdUsername = (json) => {
+        let new_json = []
+        for (let j of json) {
+            if (j.username) {
+                j.id = j.username
+            }
+            new_json.push(j)
+        }                        
+        return new_json
+    }
+    
     /**
      * @param {Object} response HTTP response from fetch()
      * @param {String} type One of the constants appearing at the top if this file, e.g. 'UPDATE'
@@ -115,7 +126,7 @@ export default (apiUrl, httpClient = fetchUtils.fetchJson) => {
                     );
                 }
                 return {
-                    data: json,
+                    data: swapIdUsername(json),
                     total: parseInt(
                         headers
                             .get('content-range')
