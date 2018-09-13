@@ -1,5 +1,5 @@
 {
-    "name": "ra-data-simple-rest",
+    "name": "ra-data-simple-rest-bloxcar",
     "version": "2.3.0",
     "description": "Simple REST data provider for react-admin",
     "main": "lib/index.js",
